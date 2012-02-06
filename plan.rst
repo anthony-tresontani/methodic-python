@@ -76,5 +76,26 @@ Gigi: "Go on"
         pass
 
 Gigi: "Then run"
+Jojo: 
+  nosetests
+  Ran 1 tests in 0.003s
+
+I do suggest to increase the pairing team cohesion be promoting a happy feeling. To be online applied when pairing. Can be weird alone.
+
+Gigi: "We did it, yeah!"
+Jojo: "Let's write a failing test now"
+  self.assertEquals( "XX", predict_gender("Jojo"))
+
+Introducing PyHamcrest...
+Test should be readible and explicit, pyhamcrest improve that. Simple
+
+   assert_that(predict_gender("Jojo"), is_(equal_to("XX"))
+
+Gigi: 
+  nosetests
+  FAILED ( error=1 )
+
+Here we are, the TDD process is initiated. Just keep the pace. Development is a marathon.
+Keep on iterating, again and again.
 
 
