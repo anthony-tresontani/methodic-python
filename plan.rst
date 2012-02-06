@@ -30,7 +30,12 @@ Domain driven design means Refactoring meaning TDD as design patterns.
 
 Even performance testing is really easy if you have an already existing set a test to check for performance issue.
 
-*Apply* 
+*Why I Am using it*
+
+As a lazy guy, I can rest during tests run. It also make your life predictable, soon, you will run a test. Still lazy, it ask me to do the minimum to male the test pass.
+As a really bad keyboard user, it ensures I am not doing any mistakes.
+
+*Release your TDD power* 
 
 There is, for sure, different way to apply TDD. And I will only explain mine. Some start by a unit test performing really tiny step, some other start with an acceptance test which will stay RED during a long time before been GREEN. It's mainly a psychological aspect which differt. If you can stay a long time with a RED test, you will be able to follow my way.
 
@@ -39,5 +44,37 @@ There is, for sure, different way to apply TDD. And I will only explain mine. So
 Ok. Write an acceptance test. We want feature X do something, but, but... :
 
 0. Setup your env.
+To run anything we need a runner, obvious. My choice is always nose. Nice, clean, efficient. Nose is just a unittest extension which make test painless.
+Organise your tests the way you want, write setup method at any level and run your test.
+``pip install nose``, then we also need unittest. READY TO GO.
+
+Back to step 1.
+
+Jojo: "Well, I'd like to implement feature X"
+Gigi: "What's this feature about"
+Jojo: "Given a name, it says how many X chromosome X the person have"
+Gigi: "Predict gender, and the test will be test_predict_gender"
+Jojo:
+
+    TestPredictGender(TestCase):
+      def test_predict_gender(self):
+
+Gigi: "Fine, just add pass"
+Jojo: That will not fail, is that really TDD?
+Gigi: "Author ??"
+
+Not really. TDD request to write a failing test first, this may pass. My experience as a Python developer lead me to always write this test stub first.
+And it happened to failed often.
+The reason is simple: 
+  - Ensure the test is detected and run. Remove any test method name mislabel.
+  - Check any setup/configuration. When using any framework, make this test pass can already take lot's of time. For example, with django, this allow you to ensure your DB setup is right.
+
+Gigi: "Go on"
+
+    TestPredictGender(TestCase):
+      def test_predict_gender(self):
+        pass
+
+Gigi: "Then run"
 
 
