@@ -30,5 +30,14 @@ Domain driven design means Refactoring meaning TDD as design patterns.
 
 Even performance testing is really easy if you have an already existing set a test to check for performance issue.
 
+*Apply* 
+
+There is, for sure, different way to apply TDD. And I will only explain mine. Some start by a unit test performing really tiny step, some other start with an acceptance test which will stay RED during a long time before been GREEN. It's mainly a psychological aspect which differt. If you can stay a long time with a RED test, you will be able to follow my way.
+
+1. Write an acceptance test.
+
+Ok. Write an acceptance test. We want feature X do something, but, but... :
+
+0. Setup your env.
 
 
