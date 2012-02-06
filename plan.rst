@@ -10,7 +10,7 @@ TDD stands for Test Driven Development. The idea is quite basic, write a test be
 How do I write feature X? No idea, but the first step is test_feature_X. 
 All the benefits has already been fully describe on all books explaining deeply the method. From "you write clean code and best design" to "you'll be healthier". But all these great rewards to use this great approache rely on a static typed language. And mostly Java. Well, as a dynamic typed developer, you can expect even more. Expect it, then it's more.
 
-As a python developer, you know how dense this language can be, in features by line of code or in bugs. No compiler to remove basic issues, not even mistyping variable name. What about object not implementing the protocol? Which protocol? No even a way to specify why expect a protocol.
+As a python developer, you know how dense this language can be, in features by line of code or in bugs. No compiler to remove basic issues, not even mistyping variable name. What about object not implementing the protocol? Which protocol? Not even a way to specify which protocol you expect.
 
 Then you will win:
   - All the basic TDD benefits.(already a long list)
@@ -26,13 +26,13 @@ Ok, final argument, that do work. Convinced!
 Something else than you may not be aware of is any other methodology, tools and so rely somewhere on TDD.
 Refactoring without TDD is as hazardous as ##########.  TDD ensure you refactoring keep the feature is the same working state.
 Continous integration means running unit testing continously.
-Domain driven design means Refactoring meaning TDD as design patterns.
+Domain driven design means Refactoring meaning TDD as design patterns do.
 
-Even performance testing is really easy if you have an already existing set a test to check for performance issue.
+Even performance testing is really easy if you already have an existing set of test to check for performance issue.
 
 *Why I Am using it*
 
-As a lazy guy, I can rest during tests run. It also make your life predictable, soon, you will run a test. Still lazy, it ask me to do the minimum to male the test pass.
+As a lazy guy, I can rest during tests run. It also make your life predictable, soon, you will run a test. Still lazy, it ask me to do the minimum to make the test pass.
 As a really bad keyboard user, it ensures I am not doing any mistakes.
 
 *Release your TDD power* 
@@ -52,21 +52,21 @@ Back to step 1.
 
 Jojo: "Well, I'd like to implement feature X"
 Gigi: "What's this feature about"
-Jojo: "Given a name, it says how many X chromosome X the person have"
+Jojo: "Given a name, it says how many X chromosome  the person X have"
 Gigi: "Predict gender, and the test will be test_predict_gender"
 Jojo:
 
-    TestPredictGender(TestCase):
+    TestPredictGender(unittest.TestCase):
       def test_predict_gender(self):
 
 Gigi: "Fine, just add pass"
 Jojo: That will not fail, is that really TDD?
 Gigi: "Author ??"
 
-Not really. TDD request to write a failing test first, this may pass. My experience as a Python developer lead me to always write this test stub first.
+Not really. TDD request to write a failing test first, this one may pass. My experience as a Python developer lead me to always write this test stub first.
 And it happened to failed often.
 The reason is simple: 
-  - Ensure the test is detected and run. Remove any test method name mislabel.
+  - Ensure the test is detected and run. Remove any test method name mislabelled.
   - Check any setup/configuration. When using any framework, make this test pass can already take lot's of time. For example, with django, this allow you to ensure your DB setup is right.
 
 Gigi: "Go on"
@@ -80,7 +80,7 @@ Jojo:
   nosetests
   Ran 1 tests in 0.003s
 
-I do suggest to increase the pairing team cohesion be promoting a happy feeling. To be online applied when pairing. Can be weird alone.
+I do suggest to increase the pairing team cohesion by promoting a happy feeling. To be only applied when pairing. Can be weird alone.
 
 Gigi: "We did it, yeah!"
 Jojo: "Let's write a failing test now"
@@ -91,6 +91,8 @@ Test should be readible and explicit, pyhamcrest improve that. Simple
 
    assert_that(predict_gender("Jojo"), is_(equal_to("XX"))
 
+...end introducing PyHamcrest
+
 Gigi: 
   nosetests
   FAILED ( error=1 )
@@ -98,4 +100,18 @@ Gigi:
 Here we are, the TDD process is initiated. Just keep the pace. Development is a marathon.
 Keep on iterating, again and again.
 
+Sometimes, after a long day, you will feel like you can skip a test. My advice is never do that (that's an advice I do not apply once a week, and pay it expensily).
+Even the more obvious piece of code can fail, and especially after a long day. If you also like leave on time, fight yourself and apply.
 
+Fake the world
+--------------
+
+One of the strongest python ability is it ease at mocking stuff. Anything you need, just mock it.
+If you need a new attribute username, add it:
+
+   my_object = MyObject()
+   my_object.username  = "Gigi"    # that's done
+
+Need a new method, add it:
+
+   my_object.get_username = lambda x : "Gigi"
