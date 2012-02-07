@@ -1,8 +1,6 @@
-Python, with methods
-====================
-
+===========================
 Apply TDD, the pythonic way
----------------------------
+===========================
 
 **Why you should matter**
 
