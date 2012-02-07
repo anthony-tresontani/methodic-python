@@ -4,7 +4,7 @@ Python, with methods
 Apply TDD, the pythonic way
 ---------------------------
 
-*Why you should matter*
+**Why you should matter**
 
 TDD stands for Test Driven Development. The idea is quite basic, write a test before doing anything else.
 How do I write feature X? No idea, but the first step is test_feature_X. 
@@ -21,7 +21,7 @@ The other side is Python is a not compiled language, which means the cycle "writ
 Now, you agree.
 Ok, final argument, that do work. Convinced!
 
-*Why you should even more matter*
+**Why you should even more matter**
 
 Something else than you may not be aware of is any other methodology, tools and so rely somewhere on TDD.
 Refactoring without TDD is as hazardous as ##########.  TDD ensure you refactoring keep the feature is the same working state.
@@ -30,12 +30,12 @@ Domain driven design means Refactoring meaning TDD as design patterns do.
 
 Even performance testing is really easy if you already have an existing set of test to check for performance issue.
 
-*Why I Am using it*
+**Why I Am using it**
 
 As a lazy guy, I can rest during tests run. It also make your life predictable, soon, you will run a test. Still lazy, it ask me to do the minimum to make the test pass.
 As a really bad keyboard user, it ensures I am not doing any mistakes.
 
-*Release your TDD power* 
+**Release your TDD power**
 
 There is, for sure, different way to apply TDD. And I will only explain mine. Some start by a unit test performing really tiny step, some other start with an acceptance test which will stay RED during a long time before been GREEN. It's mainly a psychological aspect which differt. If you can stay a long time with a RED test, you will be able to follow my way.
 
@@ -115,3 +115,52 @@ If you need a new attribute username, add it:
 Need a new method, add it:
 
    my_object.get_username = lambda x : "Gigi"
+
+Need a new simple type, add it:
+
+   my_request = type("Request", (), ["user":user"])()
+
+Nothing cannot be mocked.
+
+If an already existing class need some modifications, change it. 
+Sometimes you might not want to perform a call to a external provider
+
+    MyClass.get_external_data = lambda x: "Jojo, Gigi"
+
+A django example:
+
+Template tags in Django allow to define custom logic applied on the template level to display some information.
+How damn can we test such an deep django element? ......... Mock it!
+
+By creating a new init method ( Yes override the constructor ), you can easily test it, see after:
+
+  def new_init(self, value, user):
+      self.value = value
+      self.user = user
+  
+  def setUp(self):
+      MyTemplateTagNode.__init__ = new_init
+      value = "my value"
+      my_user = User.objects.get(id=1)
+      node = MyTemplateTagNode(my_value, my_user))
+
+
+Ok, fake everything is easy in Python, but what about data? And database value ?
+Data can be created in any setup level method: before the method, before the class, before the module. Which mean, you can refactor as much as you want your data provider.
+For big project, where business rules to be applied are complex, I do advice you to create a data API. Want a user, `create_user`, want an admin user, `create_admin_user()`.
+That will ease your test creation and make them readable, and also ensure your collegue don't forget to create the underlying B object.
+
+Well but what about database data?
+
+Most of the time, amongst tens of attribute, you only need one or two in your test. The more attributes you set, the more likely you will have to change your fixture if any table modification occured.
+What's why you need an abstract data generator. I don't have a generic solution but for Django, there is an awesome one:
+
+Introducing django-dynamic-fixtures...
+It's straightforward.
+
+    my_object = new(Object, field1="Jojo")
+    my_object.save()
+
+That's it. What if field9 is added to Object class (what a silly class name), still working. Field 7 and 12, still working.
+.... end introduction
+
