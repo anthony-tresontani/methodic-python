@@ -105,9 +105,34 @@ Ok, now we want the code.
 On the TDD original bible, Kent Beck give us three methods to write the next step:
 
 `Remove duplication`
+
+TDD implies writing the smallest solution to make your test pass. Which mean, if you have:
+
+    self.assertEquals( my_function(1), 10)
+
+the first usual step is to write:
+
+    def my_function(val):
+        return 10
+
+Well, fine, but now we have the value 10 duplicated between the test and the code. You have to remove it and write real code for that.
+The aim of that is to refactor under a GREEN test suite. As soon as you break something by refactoring, RED.
+
 `Triangularisation`
+
+This is definitely my prefered method. You still perform as the first method, but instead of removing duplication, you write another test.
+
+     self.assertEquals( my_function(2), 20)
+
+Can't keep anymore your weak implementation, have to write a test now. For a pure TDD point of view, there is two cons:
+1. Your work with a RED bar.
+2. Code duplication is test.
+
+But the process is easier and scalable. The more complex your problem is, the more triangularisation you can use.
+
 `obvious implementation`
 
+Sometimes, it's just so easy than doing it in one step is just obvious. Take care using this method.
 
 Fake the world
 --------------
