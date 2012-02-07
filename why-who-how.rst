@@ -23,7 +23,7 @@ Switch from part to part, read it cover to cover. No idea, we all have our own w
 That's the first stone of the pyramid.
 
 *Why this section?*
-Euh,.. look professional and serious, add an extra page and avoid a therapist to talk about test extremism, want to change the world, why not the first award for a techinical book...
+Euh,.. look professional and serious, add an extra page and avoid a therapist to talk about test extremism, want to change the world, why not the first award for a technical book...
 
 
 
