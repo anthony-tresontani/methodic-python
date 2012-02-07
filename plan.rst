@@ -24,7 +24,7 @@ Ok, final argument, that do work. Convinced!
 **Why you should even more matter**
 
 Something else than you may not be aware of is any other methodology, tools and so rely somewhere on TDD.
-Refactoring without TDD is as hazardous as ##########.  TDD ensure you refactoring keep the feature is the same working state.
+Refactoring without TDD is as hazardous as writing the second line in perl.  TDD ensure you refactoring keep the feature is the same working state.
 Continous integration means running unit testing continously.
 Domain driven design means Refactoring meaning TDD as design patterns do.
 
@@ -102,6 +102,14 @@ Keep on iterating, again and again.
 
 Sometimes, after a long day, you will feel like you can skip a test. My advice is never do that (that's an advice I do not apply once a week, and pay it expensily).
 Even the more obvious piece of code can fail, and especially after a long day. If you also like leave on time, fight yourself and apply.
+
+Ok, now we want the code.
+On the TDD original bible, Kent Beck give us three methods to write the next step:
+
+`Remove duplication`
+`Triangularisation`
+`obvious implementation`
+
 
 Fake the world
 --------------
