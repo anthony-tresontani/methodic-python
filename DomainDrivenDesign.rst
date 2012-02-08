@@ -8,6 +8,9 @@ Domain Driven Design is another adjacent approach to TDD which imply understandi
 Writing software is complex, but should not be complicated. However, we all know that the bigger our project is, the more inertia there is to CRUD ( Create, Read, update or Delete any part of the project). Domain driven design is a part of the solution.
 
 It implies many thinks:
+
+  - We developers, are all responsible for the design of our application. Design on paper do not work.
+
   - Design is alive and unpredictable. Should be apply with agility ie being changed during the whole project lifecycle.
 
   - Speak the same language than your customer, even in your design. If your customer call a product a SKU, use SKU.
