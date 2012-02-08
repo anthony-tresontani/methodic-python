@@ -50,5 +50,24 @@ Example:
 This is said to be side-effect free. If for any reason, your modified the value during the object lifecycle, who can forget than the object has been modified.
 
 
+Distilling the core
+-------------------
+
+When you project grows, again and again, one solution to keep it maintanable is to package it in loose coupled module. The objective being if you change something in the module A, break nothing in the module B.
+Obvious, but how to achieve it. By distilling the core.
+
+There is many techniques for that but one is core for python, called writting framework translated by create a python library to handle the task (and maybe but it on pypi).
+You will quickly see your program being a big core and many small technical application. The immediate benefit is you remove a code slice from the main code.
+That's now managed by a different code base where you can made some modifications on the framework without breaking the code.
+The other benefit is your open source resume will grow. That also matter.
+
+Our B2B project was requesting to parse some CSV files. Parsing CSV file as nothing to do with our plateform main business, we removed it into `django-csv-importer`.
+Now, adding extra CSV processor take few minutes, no code duplication and no noise. Job done Sir!
+
+
+
+
+
+
 
 
