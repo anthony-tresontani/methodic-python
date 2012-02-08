@@ -51,6 +51,29 @@ Example:
 This is said to be side-effect free. If for any reason, your modified the value during the object lifecycle, who can forget than the object has been modified.
 
 
+Aggregates
+----------
+
+Some objects may be closely linked together. You can't speak about a stock record in your model without talking about a product. It's event more than that, you should not.
+That's an example of aggregates. Some entities (ie remarkable objects distinguished by any kind of ID) may be so coupled that they don't have to be accessed outside their "parent" element.
+
+In our previous example, that means no stock record should be accessed from outside product.
+
+Then if you want to know how much product are available, do:
+
+    class Product(object):
+      def get_stock(self):
+          self.stock.get_stock_level()
+
+The major benefit using this pattern is to be able to keep the consistancy of the object and to validate your business rules.
+Concretly, this save us a lot's of line of defensive code. No more:
+
+    if stock:
+        <do something>
+
+and your rules are kept in a safe and visible place. Any one to one DB relationship might be a aggregate.
+Definetly useful.
+
 Distilling the core
 -------------------
 
