@@ -3,7 +3,7 @@ Domain Driven Design
 ====================
 
 Yet another driver.
-Domain Driven Design is another adjacent approach to TDD which imply understand and solving problem of medium to big project.
+Domain Driven Design is another adjacent approach to TDD which imply understanding and solving problems from medium to big project.
 
 Writing software is complex, but should not be complicated. However, we all know that the bigger our project is, the more inertia there is to CRUD ( Create, Read, update or Delete any part of the project). Domain driven design is a part of the solution.
 
@@ -17,7 +17,8 @@ It implies many thinks:
 
   - Know your core and push out what do not belong to it. Any project implies a bunch of different aspect. UI, database mapper (ORM), interfaces with external solution. Learn to distinguish what is core and what is not and, and, and, push it out.
 
-This is just a small part of the overall domain design and I will only explain the part which bring a real value in my python projects.
+This is just a small part of the overall domain design and I will only explain the part which brought a real value in my python projects.
+This only include patterns that can be applied to your code but you have to know than some concept as `bounded context`, `context map`, etc. exist and concern not directly the implemenation but also the communication amongst team, project management and so.
 
 Values / Entity
 ---------------
