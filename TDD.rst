@@ -250,8 +250,34 @@ That's it. What if field9 is added to Object class (what a silly class name), st
   There is absolutely no trade-off to apply TDD, it's just faster as soon as your problem is more than trivial (I mean more than 3 lines).
 
 
-**TDD is not test**
+**Gotchas**
+
+*TDD is not test*
 
 TDD allow you to write well designed and easy to test code, but TDD is not really about testing. Tests are a side effect to TDD.
 The method focus on unit test. It's not because who have a really well working set of block than the house stands.
 They have to be well assembled. System, acceptance, smoke or whatever should still be considered.
+
+*Local maximum != global maximum*
+
+TDD is an iterative process to improve your code until the local maximum. However sometimes, after a small slope, there is a big mountain.
+You still have to think of your design and try to take bigger step if you forecast a mountain.
+
+*Be better, not the best*
+
+There is no TDD developer supremacy, you will not become the top-level developer of your company after 1 hour of TDD.
+But you will definetely become better.
+
+
+**TIPS**
+
+- Do not start by a test to handle errors. Think positive first and negative after.
+- TDD is not unit tests. TDD means writing a test first.
+- Start every new feature by an acceptance test first. Before chosing the road, chose the direction.
+
+
+**When to not apply**
+
+Sometimes, it's really better not to apply. If:
+- you are using thread programming, that can be really tough to use.
+- Developing a one-shot for one hour with a peer. I faced the case during a python Dojo. Four people on a one hour problem are more effective than TDD.
