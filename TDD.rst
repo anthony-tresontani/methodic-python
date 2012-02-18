@@ -2,21 +2,63 @@
 Apply TDD, the pythonic way
 ===========================
 
-**Why you should matter**
+**We, has developers, suck**
 
-TDD stands for Test Driven Development. The idea is quite basic, write a test before doing anything else.
-How do I write feature X? No idea, but the first step is test_feature_X. 
-All the benefits has already been fully describe on all books explaining deeply the method. From "you write clean code and best design" to "you'll be healthier". But all these great rewards to use this great approache rely on a static typed language. And mostly Java. Well, as a dynamic typed developer, you can expect even more. Expect it, then it's more.
+Software development is complex and there is as many way of creating a good program than the way of creating a good bug.
+From the most obvious to more complex:
 
-As a python developer, you know how dense this language can be, in features by line of code or in bugs. No compiler to remove basic issues, not even mistyping variable name. What about object not implementing the protocol? Which protocol? Not even a way to specify which protocol you expect.
+1. Code syntax
+   Write non valid python code.
+   Way to avoid: run the python command will detect it
 
-Then you will win:
-  - All the basic TDD benefits.(already a long list)
-  - Dynamic typing language errors
+2. Typos
+   Make a typo when calling a variable name, function name or class, etc.
+   Way to avoid: run each function, class etc.| Ask your IDE 
 
-The other side is Python is a not compiled language, which means the cycle "write a test/ build / Run" is "write / run". Other win, it will even take less overhead than a strong typed language.
+3. Bad algorithmic
+   In complex code with nested loops or conditionnals and when handling many side cases, you can sometime misplace you return function
+   or a nested if.
+   Way to avoid: Check the returned result for the function | pair programming
 
-Now, you agree.
+4. Write over complicated code
+   Most of the time, when starting a new solution for a non-obvious problem, we over-think it and produce something
+   absurdly complex for a problem complexity quiet low.
+   Way to avoid: Pair programming, pair review
+
+5. Write out-of-spec program
+   It may also happen we write a good program solving the wrong problem.
+   Way to avoid: Pair programming, pair review
+
+6. Write non-robust program
+   Cool, that works! add(2,4) = 6. Great. What about add(2, -3)? I haven't think about that. Booo! Weak program.
+   Way to avoid: Unit tests
+
+7. Write useless code
+   You fought against you problem for long hours and tried many solutions. You finally found the working one but don't have anymore
+   the energy to clean the mess done by the fight or doesn't really feel confident of what an be removed.
+   Way to avoid: Do not fight | Take risk
+
+8. Write bad design
+   You finally did it and all your algorithm are clean and effective. Seems like this method can be extracted to his own class.
+   And this class name may be more expressive with another name.
+   Way to avoid: Trust blindly your IDE and click refactor (I hope that fine, I do hope that fine) | Unit test
+
+9. Fix a bug on a piece of code written by a collegue and break everything else
+   WTF is he trying to do there. Don't know. Let's tweak it!
+   Way to avoid: Always have the original author with you (sounds unlikely) | Unit tests
+
+Well, not that simple. Fearful programmer live full of traps and ambushes. "No way, I am better than that".
+Some programmer may be really better than that and been able to avoid all of them due to an increadible level of focus, memory and attention.
+But, we, normal professional programmers, are interrupted, receive emails and calls, being ask by your boss to explain him why? 
+
+Else you can void all the ambushes by apply everytime all the "way to avoid". Seems unlikely.
+Or, you use the common tool to prevent all of them: TDD.
+
+TDD stands for Test Driven Development. The idea is quite basic, write a test before doing anything else, then run it, fix the code with the most obvious method and refactor the code.
+How do I write feature X? No idea, but the first step is 
+
+  def test_feature_X(self): 
+
 Ok, final argument, that do work. Convinced!
 
 **Why you should even more matter**
@@ -30,8 +72,8 @@ Even performance testing is really easy if you already have an existing set of t
 
 **Why I Am using it**
 
-As a lazy guy, I can rest during tests run. It also make your life predictable, soon, you will run a test. Still lazy, it ask me to do the minimum to make the test pass.
-As a really bad keyboard user, it ensures I am not doing any mistakes.
+As a lazy guy, I can rest during tests run. It also make your life predictable: soon, you will run a test. Still lazy, it ask me to do the minimum to make the test pass.
+As a really bad programmer, it ensures I am not doing any mistakes.
 
 **Release your TDD power**
 
@@ -64,7 +106,7 @@ Gigi: "Author ??"
 Not really. TDD request to write a failing test first, this one may pass. My experience as a Python developer lead me to always write this test stub first.
 And it happened to failed often.
 The reason is simple: 
-  - Ensure the test is detected and run. Remove any test method name mislabelled.
+  - Ensure the test is detected and run. Ex: Remove any test method name mislabelled.
   - Check any setup/configuration. When using any framework, make this test pass can already take lot's of time. For example, with django, this allow you to ensure your DB setup is right.
 
 Gigi: "Go on"
@@ -85,7 +127,7 @@ Jojo: "Let's write a failing test now"
   self.assertEquals( "XX", predict_gender("Jojo"))
 
 Introducing PyHamcrest...
-Test should be readible and explicit, pyhamcrest improve that. Simple
+Tests should be readible and explicit (remember ambush 9), pyhamcrest improve that. Simple
 
    assert_that(predict_gender("Jojo"), is_(equal_to("XX"))
 
@@ -124,15 +166,20 @@ This is definitely my prefered method. You still perform as the first method, bu
 
      self.assertEquals( my_function(2), 20)
 
-Can't keep anymore your weak implementation, have to write a test now. For a pure TDD point of view, there is two cons:
+Can't keep anymore your weak implementation, have to write real solution. For a pure TDD point of view, there is two cons:
 1. Your work with a RED bar.
 2. Code duplication is test.
 
-But the process is easier and scalable. The more complex your problem is, the more triangularisation you can use.
+My advice is to remove the second test when you get the final GREEN bar.
+
+But the process is easier and scalable. The more complex your problem is, the more effective triangularisation is.
 
 `obvious implementation`
 
 Sometimes, it's just so easy than doing it in one step is just obvious. Take care using this method.
+
+Ok, but what if I have a third party application and I should connect to a remote server to test my client code.
+Mock it!
 
 Fake the world
 --------------
@@ -177,6 +224,7 @@ By creating a new init method ( Yes override the constructor ), you can easily t
 
 
 Ok, fake everything is easy in Python, but what about data? And database value ?
+
 Data can be created in any setup level method: before the method, before the class, before the module. Which mean, you can refactor as much as you want your data provider.
 For big project, where business rules to be applied are complex, I do advice you to create a data API. Want a user, `create_user`, want an admin user, `create_admin_user()`.
 That will ease your test creation and make them readable, and also ensure your collegue don't forget to create the underlying B object.
@@ -189,8 +237,7 @@ What's why you need an abstract data generator. I don't have a generic solution 
 Introducing django-dynamic-fixtures...
 It's straightforward.
 
-    my_object = new(Object, field1="Jojo")
-    my_object.save()
+    my_object = get(Object, field1="Jojo")
 
 That's it. What if field9 is added to Object class (what a silly class name), still working. Field 7 and 12, still working.
 .... end introduction
