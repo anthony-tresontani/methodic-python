@@ -242,3 +242,16 @@ It's straightforward.
 That's it. What if field9 is added to Object class (what a silly class name), still working. Field 7 and 12, still working.
 .... end introduction
 
+**I can't apply it cause..**
+
+- I haven't got the time, project manager put pressure on me to respect deadline.
+  That exactly the most effective time to apply TDD. The more pressure on your shoulder, the more obvious mistake your make.
+  Ok, if you're just ask to deliver non working code, don't use it. If working code is requested, TDD.
+  There is absolutely no trade-off to apply TDD, it's just faster as soon as your problem is more than trivial (I mean more than 3 lines).
+
+
+**TDD is not test**
+
+TDD allow you to write well designed and easy to test code, but TDD is not really about testing. Tests are a side effect to TDD.
+The method focus on unit test. It's not because who have a really well working set of block than the house stands.
+They have to be well assembled. System, acceptance, smoke or whatever should still be considered.
