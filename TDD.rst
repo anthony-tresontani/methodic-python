@@ -250,6 +250,11 @@ That's it. What if field9 is added to Object class (what a silly class name), st
   Ok, if you're just ask to deliver non working code, don't use it. If working code is requested, TDD.
   There is absolutely no trade-off to apply TDD, it's just faster as soon as your problem is more than trivial (I mean more than 3 lines).
 
+- My manager don't want
+  Manager speak statistics. Unfortunatly, there is almost no serious study showing undestructible facts and most of them rely of Java.
+  The only common fact is the significant reduction of the number of bugs. Usually around 30-40% less. Productivity impact vary from -15% to +30%.
+  Doesn't seems to be really relevant, what's developper productivity? But one think is sure, the overhead when applying TDD in python is lower (no compilation) and the
+  benefit higher ( No compilation). Then... That worth.
 
 **Gotchas**
 
@@ -275,7 +280,7 @@ But you will definetely become better.
 - Do not start by a test to handle errors. Think positive first and negative after.
 - TDD is not unit tests. TDD means writing a test first.
 - Start every new feature by an acceptance test first. Before chosing the road, chose the direction.
-
+- Keep your test lightning fast. I run the full suite 10 to 20 times a day. More than few minutes is not acceptable.
 
 **When to not apply**
 
