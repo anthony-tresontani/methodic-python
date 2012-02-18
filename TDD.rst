@@ -84,6 +84,7 @@ There is, for sure, different way to apply TDD. And I will only explain mine. So
 Ok. Write an acceptance test. We want feature X do something, but, but... :
 
 0. Setup your env.
+
 To run anything we need a runner, obvious. My choice is always nose. Nice, clean, efficient. Nose is just a unittest extension which make test painless.
 Organise your tests the way you want, write setup method at any level and run your test.
 ``pip install nose``, then we also need unittest. READY TO GO.
