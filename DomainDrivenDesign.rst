@@ -3,36 +3,36 @@ Domain Driven Design
 ====================
 
 Yet another driver.
-Domain Driven Design is another adjacent approach to TDD which imply understanding and solving problems from medium to big project.
+Domain Driven Design is another adjacent approach to TDD, which implies understanding and solving problems from medium to big project.
 
-Writing software is complex, but should not be complicated. However, we all know that the bigger our project is, the more inertia there is to CRUD ( Create, Read, update or Delete any part of the project). Domain driven design is a part of the solution.
+Writing software is complex, but should not be complicated. However, we all know that the bigger our project is, the more inertia there is to CRUD ( Create, Read, Update or Delete any part of the project). Domain driven design is a part of the solution.
 
 It implies many thinks:
 
-  - We developers, are all responsible for the design of our application. Design on paper do not work.
+  - We developers, are all responsible for the design of our application. Design on paper does not work.
 
-  - Design is alive and unpredictable. Should be apply with agility ie being changed during the whole project lifecycle.
+  - Design is alive and unpredictable; should be applied with agility and modified during the whole project lifecycle.
 
-  - Speak the same language than your customer, even in your design. If your customer call a product a SKU, use SKU.
-    It will ease to communicate and give more expressiveness to your model.
+  - We need to speak the same language as our customer, even in your design. If the customer call a product a SKU, use SKU.
+    It will simplify communication and give more expressiveness to your model.
 
-  - Reveal your intention. For any part on your program, remember it will be more read than write. Than, don't be lazy with your method, variable or class name. Same apply for your test. If you need 50 characters for a method name, do it.
+  - Reveal your intention. For any part on your program, remember developers willspend more time reading than writing. Don't be lazy with your method, variable or class names. Same applies for your tests. If you need to use 50 characters in a method name, do it.
 
-  - Know your core and push out what do not belong to it. Any project implies a bunch of different aspect. UI, database mapper (ORM), interfaces with external solution. Learn to distinguish what is core and what is not and, and, and, push it out.
+  - Understand your core functionality and push out things that do not belong in it. Any project consists of a bunch of different layers: UI, database mapper (ORM), interfaces with external solutions. Learn to distinguish the core functionality and extranious elements and, and, and, push those out.
 
-This is just a small part of the overall domain design and I will only explain the part which brought a real value in my python projects.
-This only include patterns that can be applied to your code but you have to know than some concept as `bounded context`, `context map`, etc. exist and concern not directly the implemenation but also the communication amongst team, project management and so.
+This is just a small part of the overall domain design and I will only explain the parts that brought a real value to my python projects.
+These only include patterns that can be applied to your code, but you should know than some concept such as `bounded context`, `context map` and others exist. All of them go beyond software implemenation and aid in communication amongst teams, project management and other stake holders.
 
 Values / Entity
 ---------------
 
-Values/Entity is a concept shared by many technical programming best seller author. Domain driven highlight it also.
+Values/Entity is a concept outlined by many software development best selling authors. Domain Driven literature highlights this concept as well.
 
-If you have to call something by a unique identifier, that's an entity. An object with it own identity, different from it peers even if they have sames attributes values. Sorry to say that, you are an entity. Being 1,82 meter tall and weighting 80 kilos don't make you identical than your cousin Jojo with the same attributes.
+If you have to call something by a unique identifier, that's an entity. An object with its own identity, different from its peers is an entity, even if they have sames attributes and values. Sorry to say that, you are an entity. Being 1,82 meter tall and weighting 80 kilos does not make you identical to your cousin Jojo with the same attributes.
 
-Then, if you manage entity, find a unique identifier in the whole lifecycle of the object. Card processor company use an ARN which is even valid outside your program.
+When you manage an entity, find a unique identifier in the whole lifecycle of the object. Card processor company uses an ARN, which is even valid outside your implementation's domain.
 
-Everything which is not an entity should be a value. Do you mind to have the first of the second piece of cake if they all have the same size, No. I JUST WANT MY CAKE!. Here, if the size attribute is identical, there the Value object is identical.
+Everything which is not an entity should be a value. Do you have the first or the second of the two piece of cake, given they are both the same size? No. I JUST WANT MY CAKE!. Here, if the size attribute is identical, then the Value object is identical.
 
 Let's code a piece of cake!
 
